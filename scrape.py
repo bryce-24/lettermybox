@@ -1,14 +1,17 @@
-from bs4 import BeautifulSoup
 import requests
+from bs4 import BeautifulSoup
 
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-}
+url = "https://letterboxd.com/bryce224/films/"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")
 
-url = 'https://letterboxd.com/bryce224/films/'
-page = requests.get(url, headers=headers)
-soup = BeautifulSoup(page.text, 'html.parser')
+with open("page_source.html", "w", encoding="utf-8") as file:
+    file.write(soup.prettify())
 
-
-soup.find_all('div')
-print(page.status_code)
+items = soup.find_all('li', class_='poster-container')
+with open("titles.html", "w", encoding="utf-8") as file:
+    for item in items:
+        title = item.get_text()
+        print(item)
+        file.write(item.get_text())
+        file.write("\n")
