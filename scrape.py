@@ -9,9 +9,26 @@ film_data = []
 
 def convert_rating_to_number(rating_text):
     if rating_text:
-        rating_text = rating_text.replace('★', '').replace('½', '.5').strip()
-        if rating_text:  # Ensure the string is not empty
-            return float(rating_text)
+        if rating_text == '½':
+            return float(0.5)
+        if rating_text == '★':
+            return float(1.0)
+        if rating_text == '★½':
+            return float(1.5)
+        if rating_text == '★★':
+            return float(2.0)
+        if rating_text == '★★½':
+            return float(2.5)
+        if rating_text == '★★★':
+            return float(3.0)
+        if rating_text == '★★★½':
+            return float(3.5)
+        if rating_text == '★★★★':
+            return float(4.0)
+        if rating_text == '★★★★½':
+            return float(4.5)
+        if rating_text == '★★★★★':
+            return float(5.0)
     return None
 
 items = soup.find_all('li', class_='poster-container')
@@ -25,3 +42,15 @@ for item in items:
 
 for title, rating in film_data:
     print(f"{title} - {rating}")
+
+ratingSum = 0
+ratingCount = 0
+ratingAverage = 0
+
+for title, rating in film_data:
+    ratingSum += rating
+    ratingCount += 1
+
+print("rating sum:", ratingSum)
+print("film count:", ratingCount)
+print("average rating:", ratingSum/ratingCount)
