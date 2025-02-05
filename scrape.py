@@ -1,7 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
+import sys
 
 def scrape(username):
+    print(f"Scraping data for username: {username}")
     url = f"https://letterboxd.com/{username}/films/"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -61,7 +63,6 @@ def scrape(username):
     print(diffAvg)
 
 if __name__ == "__main__":
-    import sys
     if len(sys.argv) > 1:
         scrape(sys.argv[1])
     else:
