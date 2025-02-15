@@ -6,3 +6,19 @@ body {
     text-align: center;
     background: #14181C;
 }
+
+#loading {
+    display: none;
+    text-align: center;
+    font-size: 20px;
+    color: #99AABB;
+}
+
+#loading object{
+    max-width: 10px;
+    max-height: 10px;
+    width: 100%;
+    height: auto;
+    animation: spin 2s linear infinite;
+}
+
