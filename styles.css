@@ -8,17 +8,16 @@ body {
 }
 
 #loading {
-    display: none;
+    display: none; /* Hide the loading message initially */
     text-align: center;
     font-size: 20px;
     color: #99AABB;
 }
 
-#loading object{
-    max-width: 10px;
-    max-height: 10px;
-    width: 100%;
-    height: auto;
-    animation: spin 2s linear infinite;
+#loading object {
+    max-width: 100px; /* Adjust the max-width as needed */
+    max-height: 100px; /* Adjust the max-height as needed */
+    width: 100%; /* Ensure the SVG scales correctly */
+    height: auto; /* Maintain aspect ratio */
 }
 

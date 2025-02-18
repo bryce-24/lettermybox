@@ -4,10 +4,6 @@ import sys
 
 def scrape(username):
     print(f"Scraping data for username: {username}")
-    url = f"https://letterboxd.com/{username}/films/"
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "html.parser")
-
     film_data = []
 
     def convert_rating_to_number(rating_text):
@@ -34,14 +30,31 @@ def scrape(username):
                 return float(5.0)
         return None
 
-    items = soup.find_all('li', class_='poster-container')
-    for item in items:
-        div_tag = item.find('div', class_='film-poster')
-        rating_tag = item.find('span', class_='rating')
-        if div_tag and 'data-film-slug' in div_tag.attrs:
-            title = div_tag['data-film-slug']
-            rating = convert_rating_to_number(rating_tag.text.strip()) if rating_tag else None
-            film_data.append((title, rating))
+    # Determine the maximum number of pages
+    url = f"https://letterboxd.com/{username}/films/page/1/"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+    pagination = soup.find('div', class_='paginate-pages')
+    max_page = 1
+    if pagination:
+        page_links = pagination.find_all('a')
+        if page_links:
+            max_page = max(int(link.text) for link in page_links if link.text.isdigit())
+
+    for i in range(1, max_page + 1):
+        url = f"https://letterboxd.com/{username}/films/page/{i}/"
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        items = soup.find_all('li', class_='poster-container')
+        for item in items:
+            div_tag = item.find('div', class_='film-poster')
+            rating_tag = item.find('span', class_='rating')
+            if div_tag and 'data-film-slug' in div_tag.attrs:
+                title = div_tag['data-film-slug']
+                rating = convert_rating_to_number(rating_tag.text.strip()) if rating_tag else None
+                if rating_tag:
+                    film_data.append((title, rating))
 
     filmLinks = [f"https://letterboxd.com/film/{title}/" for title, rating in film_data]
 
@@ -49,6 +62,7 @@ def scrape(username):
 
     for link, (title, rating) in zip(filmLinks, film_data):
         response = requests.get(link)
+
         soup = BeautifulSoup(response.text, "html.parser")
         avg_tag = soup.find('meta', {'name': 'twitter:data2'})
         if avg_tag and 'content' in avg_tag.attrs:
