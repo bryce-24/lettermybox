@@ -8,8 +8,8 @@
     <title>letter my boxes</title>
 </head>
 <body>
+    <h1 class="hide-on-submit">LETTER MY BOX</h1>
     <div id="form">
-        <h1 class="hide-on-submit">LETTER MY BOX</h1>
         <h2 class="hide-on-submit">Enter Letterboxd username</h2>
         <form class="hide-on-submit" action="{{ url_for('action_page') }}" method="get" onsubmit="showLoading()">
            <input type="text" id="username" name="username"><br><br>
@@ -18,7 +18,6 @@
     </div>
     <div id="loading">
         <p id="loading-text">Retrieving film information for </p>
-        <object type="image/svg+xml" data="{{ url_for('static', filename='loading.svg') }}" width="100" height="100"></object>
     </div>
 </body>
 </html>

@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import sys
 
 def scrape(username):
-    print(f"Scraping data for username: {username}")
     film_data = []
 
     def convert_rating_to_number(rating_text):
