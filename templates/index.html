@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-    <title>letter my boxes</title>
+    <title>letter my box</title>
 </head>
 <body>
-    <h1 class="hide-on-submit">LETTER MY BOX</h1>
+    <h1 class="hide-on-submit">letter my box</h1>
     <div id="form">
-        <h2 class="hide-on-submit">Enter Letterboxd username</h2>
+        <h2 class="hide-on-submit">enter Letterboxd username</h2>
         <form class="hide-on-submit" action="{{ url_for('action_page') }}" method="get" onsubmit="showLoading()">
            <input type="text" id="username" name="username"><br><br>
            <input type="submit" value="Submit">
         </form>
     </div>
     <div id="loading">
-        <p id="loading-text">Retrieving film information for </p>
+        <p id="loading-text">retrieving film information for </p>
     </div>
 </body>
 </html>

@@ -1,17 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 
+h1 {
+    font-size: 70px;
+    animation: fadeIn 5s;
+}
+
 body {
     font-family: 'Crimson Text', serif;
-    color: #99AABB;
+    color: #dce0e6;
     text-align: center;
     background: #14181C;
+}
+
+#form {
+    opacity: 0;
+    animation: fadeIn 4s ease 3s forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 #loading {
     display: none; /* Hide the loading message initially */
     text-align: center;
     font-size: 20px;
-    color: #99AABB;
+    color: #dce0e6;
 }
 
 #loading object {
