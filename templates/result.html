@@ -7,7 +7,11 @@
     <title>letter my box</title>
 </head>
 <body>
-    <h1>Films for {{ username }}</h1>
-    <p>Average difference between your ratings and average ratings: {{ diffAvg }}</p>
+    <div id="result">
+        <h1>Films for {{ username }}</h1>
+        <div id="average_diff">
+            <p>Average difference between {{username}}'s ratings and average ratings: {{ diffAvg }}</p>
+        </div>
+    </div>
 </body>
 </html>

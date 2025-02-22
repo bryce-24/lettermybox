@@ -1,20 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 
-h1 {
-    font-size: 70px;
-    animation: fadeIn 5s;
-}
-
 body {
     font-family: 'Crimson Text', serif;
     color: #dce0e6;
     text-align: center;
     background: #14181C;
+    margin: 0; /* Remove default margin */
+    height: 90vh; /* Ensure the body takes the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+}
+
+h1 {
+    font-size: 70px;
+    animation: fadeIn 5s;
+    margin-bottom: 0px;
+}
+
+#average_diff {
+    opacity: 0;
+    animation: fadeIn 4s ease 2s forwards;
 }
 
 #form {
     opacity: 0;
-    animation: fadeIn 4s ease 3s forwards;
+    animation: fadeIn 4s ease 2s forwards;
 }
 
 @keyframes fadeIn {
@@ -27,16 +40,23 @@ body {
 }
 
 #loading {
-    display: none; /* Hide the loading message initially */
     text-align: center;
+    margin: inherit;
+    display: inherit;
+    flex-direction: inherit;
+    justify-content: inherit;
+    align-items: inherit;
     font-size: 20px;
-    color: #dce0e6;
+    height: 5vh;
 }
 
-#loading object {
-    max-width: 100px; /* Adjust the max-width as needed */
-    max-height: 100px; /* Adjust the max-height as needed */
-    width: 100%; /* Ensure the SVG scales correctly */
-    height: auto; /* Maintain aspect ratio */
+#result {
+    text-align: center;
+    margin: inherit;
+    display: inherit;
+    flex-direction: inherit;
+    justify-content: flex-start;
+    align-items: inherit;
+    font-size: 20px;
+    height: 100vh;
 }
-
