@@ -11,7 +11,7 @@
     <h1 class="hide-on-submit">letter my box</h1>
     <div id="form">
         <h2 class="hide-on-submit">enter Letterboxd username</h2>
-        <form class="hide-on-submit" action="{{ url_for('action_page') }}" method="get" onsubmit="showLoading()">
+        <form class="hide-on-submit" action="{{ url_for('results') }}" method="get" onsubmit="showLoading()">
             <input type="text" id="username" name="username"><br><br>
             <input type="submit" value="Submit">
         </form>

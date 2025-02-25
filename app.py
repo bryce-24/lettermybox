@@ -7,8 +7,8 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/action_page', methods=['GET'])
-def action_page():
+@app.route('/results', methods=['GET'])
+def results():
     username = request.args.get('username')
     if username:
         command = f"python scrape.py {username}"
