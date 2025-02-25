@@ -12,6 +12,8 @@ function showLoading() {
     elementsToHide.forEach(element => {
         element.style.display = 'none';
     });
+
+    startLoadingGame();
 }
 
 // Function to hide the loading message initially
@@ -28,3 +30,37 @@ document.addEventListener('DOMContentLoaded', function() {
         showLoading();
     });
 });
+
+function startLoadingGame() {
+    const svg = document.getElementById('loading-game')
+    let score = 0;
+
+    function createCircle() {
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        const radius = 10;
+        const x = Math.random() * (svg.clientWidth - radius * 2) + radius;
+        const y = Math.random() * (svg.clientHeight - radius * 2) + radius;
+        circle.setAttribute('cx', x);
+        circle.setAttribute('cy', y);
+        circle.setAttribute('r', radius);
+        circle.setAttribute('fill', 'black');
+        circle.style.cursor = 'pointer';
+        circle.addEventListener('click', function() {
+            score++;
+            svg.removeChild(circle);
+        });
+        svg.appendChild(circle);
+
+        setTimeout(() => {
+            if (svg.contains(circle)) {
+                svg.removeChild(circle);
+            }
+        }, 2000);
+    }
+
+    function gameLoop() {
+        createCircle();
+        setTimeout(gameLoop, 1000);
+    }
+    gameLoop();
+}
