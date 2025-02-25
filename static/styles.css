@@ -39,11 +39,33 @@ h1 {
 }
 
 #loading {
+    text-align: center;
+    display: flex; /* Use Flexbox */
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    font-size: 20px;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
 
+#loading-container {
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    position: absolute; /* Ensure the container is positioned absolutely */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure the container takes the full width */
+    height: 100%; /* Ensure the container takes the full height */
+    z-index: 1;
 }
 
 #loading-game {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
