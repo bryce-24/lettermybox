@@ -1,4 +1,6 @@
-
+let isClicked = false;
+let gameLoopRunning = false;
+let score = 0;
 
 // Function to show the loading message
 function showLoading() {
@@ -33,8 +35,48 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function startLoadingGame() {
-    const orangeCircle = document.getElementById('orange-circle');
-    const greenCircle = document.getElementById('green-circle');
-    const blueCircle = document.getElementById('blue-circle');
-    let score = 0;
+    const orangeCircle = document.getElementById('orangeCircle');
+    const greenCircle = document.getElementById('greenCircle');
+    const blueCircle = document.getElementById('blueCircle');
+
+    orangeCircle.addEventListener('click', () => {
+        score++;
+        console.log('orange circle clicked.');
+        closeCircle(orangeCircle);
+    });
+    
+    greenCircle.addEventListener('click', () => {
+        score++;
+        console.log('green circle clicked.');
+        closeCircle(greenCircle);
+    });
+    
+    blueCircle.addEventListener('click', () => {
+        score++;
+        console.log('blue circle clicked.');
+        closeCircle(blueCircle);
+    });
+
+    function gameLoop() {
+        openCircle(orangeCircle);
+        openCircle(greenCircle);
+        openCircle(blueCircle);
+        setTimeout(() => {
+            closeCircle(orangeCircle);
+            closeCircle(greenCircle);
+            closeCircle(blueCircle);
+        }, 30000000);
+    }
+    gameLoopRunning = true;
+    gameLoop();
+}
+
+
+
+function openCircle(circle) {
+    circle.style.display = 'block';
+}
+
+function closeCircle(circle) {
+    circle.style.display = 'none';
 }
