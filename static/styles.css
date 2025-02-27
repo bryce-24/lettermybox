@@ -54,12 +54,7 @@ h1 {
     display: flex; /* Use Flexbox */
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
-    position: absolute; /* Ensure the container is positioned absolutely */
-    top: 0;
-    left: 0;
-    width: 100%; /* Ensure the container takes the full width */
-    height: 100%; /* Ensure the container takes the full height */
-    z-index: 1;
+    padding: 22.5%;
 }
 
 #loading-game {

@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function startLoadingGame() {
     const svg = document.getElementById('loading-game');
     let score = 0;
-    const radius = 20;
+    const radius = 124;
 
     let orangeCircle, greenCircle, blueCircle;
 
@@ -58,7 +58,7 @@ function startLoadingGame() {
         greenCircle = UpdateCircle(greenCircle, '#04e254');
         blueCircle = UpdateCircle(blueCircle, '#43b9ef');
 
-        setTimeout(gameLoop, 5000); // Update circles every second
+        setTimeout(gameLoop, 1); // Update circles every second
     }
     gameLoopRunning = true;
     gameLoop();
