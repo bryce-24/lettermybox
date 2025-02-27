@@ -1,5 +1,4 @@
-let svgReloadInterval;
-let gameLoopRunning = false;
+
 
 // Function to show the loading message
 function showLoading() {
@@ -34,62 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function startLoadingGame() {
-    const svg = document.getElementById('loading-game');
+    const orangeCircle = document.getElementById('orange-circle');
+    const greenCircle = document.getElementById('green-circle');
+    const blueCircle = document.getElementById('blue-circle');
     let score = 0;
-    const radius = 124;
-
-    let orangeCircle, greenCircle, blueCircle;
-
-    function UpdateCircle(circle, color) {
-        const x = Math.random() * (svg.clientWidth - radius * 2) + radius;
-        const y = Math.random() * (svg.clientHeight - radius * 2) + radius;
-
-        if (circle) {
-            circle.updatePosition(x, y);
-        } else {    
-            circle = new Circle(svg, x, y, radius, color);
-        }
-
-        return circle;
-    }
-
-    function gameLoop() {
-        orangeCircle = UpdateCircle(orangeCircle, '#f78204');
-        greenCircle = UpdateCircle(greenCircle, '#04e254');
-        blueCircle = UpdateCircle(blueCircle, '#43b9ef');
-
-        setTimeout(gameLoop, 1); // Update circles every second
-    }
-    gameLoopRunning = true;
-    gameLoop();
-}
-
-class Circle {
-    constructor(svg, x, y, radius, color) {
-        this.svg = svg;
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
-        this.circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        this.circle.setAttribute('cx', x);
-        this.circle.setAttribute('cy', y);
-        this.circle.setAttribute('r', radius);
-        this.circle.setAttribute('fill', color);
-        this.circle.style.cursor = 'pointer';
-        this.circle.addEventListener('click', () => {
-            this.remove();
-        });
-        this.svg.appendChild(this.circle);
-    }
-
-    updatePosition(x, y) {
-        this.x = x;
-        this.y = y;
-        this.circle.setAttribute('cx', x);
-        this.circle.setAttribute('cy', y);
-    }
-
-    remove() {
-        this.svg.removeChild(this.circle);
-    }
 }
