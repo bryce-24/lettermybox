@@ -22,9 +22,9 @@ function hideLoading() {
     document.getElementById('loading').style.display = 'none';
 }
 
-// Add event listener to the form to show the loading message on submit
+// show the loading message on submit
 document.addEventListener('DOMContentLoaded', function() {
-    hideLoading(); // Hide the loading message initially
+    hideLoading();
 
     const form = document.querySelector('form');
     form.addEventListener('submit', function() {

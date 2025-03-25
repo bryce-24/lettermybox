@@ -4,7 +4,7 @@ import sys
 
 def scrape(username):
     film_data = []
-
+    #convert stars to floats
     def convert_rating_to_number(rating_text):
         if rating_text:
             if rating_text == '½':
@@ -29,7 +29,7 @@ def scrape(username):
                 return float(5.0)
         return None
 
-    # Determine the maximum number of pages
+    #determine the maximum number of pages
     url = f"https://letterboxd.com/{username}/films/page/1/"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -40,6 +40,7 @@ def scrape(username):
         if page_links:
             max_page = max(int(link.text) for link in page_links if link.text.isdigit())
 
+    #grab film titles and ratings
     for i in range(1, max_page + 1):
         url = f"https://letterboxd.com/{username}/films/page/{i}/"
         response = requests.get(url)
@@ -59,6 +60,7 @@ def scrape(username):
 
     ratingDiffs = []
 
+    #find average rating for each film
     for link, (title, rating) in zip(filmLinks, film_data):
         response = requests.get(link)
 
