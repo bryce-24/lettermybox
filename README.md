@@ -41,14 +41,8 @@ To run this project locally, follow these steps:
 
 1. Enter your Letterboxd username in the input field on the homepage.
 2. Click "Submit" to retrieve your statistics.
-3. Wait for the results to load. The application will display the average difference between your ratings and the average ratings of movies.
-
-## Notes
-
-- Ensure you have an active internet connection as the application scrapes data from Letterboxd.
-- The scraping process may take a few minutes depending on the number of movies rated by the user.
 
 ## Troubleshooting
 
-- If you encounter issues with dependencies, ensure you are using a virtual environment and Python 3.7 or higher.
-- If the application fails to scrape data, verify that the provided Letterboxd username is correct and publicly accessible.
+- if you encounter issues with dependencies, ensure you are using a virtual environment and Python 3.7 or higher.
+- if the application fails to scrape data, verify that the provided Letterboxd username is correct and publicly accessible.
