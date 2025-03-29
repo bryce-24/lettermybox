@@ -4,7 +4,7 @@ import sys
 
 def scrape(username):
     film_data = []
-    #convert stars to floats
+    #convert star text to floats
     def convert_rating_to_number(rating_text):
         if rating_text:
             if rating_text == '½':

@@ -17,7 +17,7 @@ function showLoading() {
     }
 }
 
-// hide loading message initially
+// hide the loading message initially
 function hideLoading() {
     document.getElementById('loading').style.display = 'none';
 }
