@@ -44,5 +44,6 @@ To run this project locally, follow these steps:
 
 ## Troubleshooting
 
-- if you encounter issues with dependencies, ensure you are using a virtual environment and Python 3.7 or higher.
-- if the application fails to scrape data, verify that the provided Letterboxd username is correct and publicly accessible.
+- Make sure that the username that you type in the text field is identical to the name that is in the url of your Letterboxd profile page.
+- If you encounter issues with dependencies, ensure you are using a virtual environment and Python 3.7 or higher.
+- If the application fails to scrape data, verify that the provided Letterboxd username is correct and publicly accessible.
