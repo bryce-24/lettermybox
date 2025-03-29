@@ -10,7 +10,7 @@ This project is a web application that scrapes data from Letterboxd to provide u
 
 - **Python**: For backend data processing and web scraping.
 - **Flask**: To create a lightweight web server for the application.
-- **JavaScript, HTML, CSS**: For the front-end interface, providing a user-friendly experience.
+- **JavaScript, HTML, CSS**: For the front-end interface.
 
 ## Installation
 
