@@ -75,10 +75,10 @@ def scrape(username):
                 print(f"Could not convert average rating for {link}: {average_rating}")
 
     diffAvg = sum(ratingDiffs) / len(ratingDiffs) if ratingDiffs else 0
-    print(diffAvg)
+    return diffAvg
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        scrape(sys.argv[1])
+        print(scrape(sys.argv[1]))
     else:
         print("No username provided.")

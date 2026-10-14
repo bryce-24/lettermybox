@@ -1,7 +1,5 @@
-#setup flask
-
 from flask import Flask, request, render_template
-import subprocess
+from scrape import scrape
 
 app = Flask(__name__)
 
@@ -11,14 +9,11 @@ def index():
 
 @app.route('/results', methods=['GET'])
 def results():
-    username = request.args.get('username')
-    if username:
-        command = f"python scrape.py {username}"
-        result = subprocess.run(command, shell=True, capture_output=True, text=True)
-        output = result.stdout.strip()
-        return render_template('result.html', username=username, diffAvg=output)
-    else:
+    username = request.args.get('username', '').strip()
+    if not username:
         return "No username provided."
+    diffAvg = round(scrape(username), 2)
+    return render_template('result.html', username=username, diffAvg=diffAvg)
 
 if __name__ == '__main__':
     app.run(debug=True)
